@@ -92,7 +92,7 @@ const DraggableMember = ({ id, name, weapons }) => {
 // Main groups page
 const GroupsPage = () => {
   const [members, setMembers] = useState([]);
-  const [groups, setGroups] = useState([
+  const [groups] = useState([
     "Group 1",
     "Group 2",
     "Group 3",
