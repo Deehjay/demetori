@@ -117,9 +117,12 @@ const GroupsPage = () => {
           return;
         }
 
-        const response = await axios.get("http://localhost:5000/api/members", {
-          headers: { Authorization: `Bearer ${token}` }, // Pass token in the headers
-        });
+        const response = await axios.get(
+          `${process.env.REACT_APP_API_URL}/api/members`,
+          {
+            headers: { Authorization: `Bearer ${token}` }, // Pass token in the headers
+          }
+        );
 
         setMembers(response.data);
       } catch (error) {

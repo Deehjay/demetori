@@ -10,10 +10,13 @@ const LoginPage = ({ onLogin }) => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post("http://localhost:5000/login", {
-        username,
-        password,
-      });
+      const response = await axios.post(
+        `${process.env.REACT_APP_API_URL}/login`,
+        {
+          username,
+          password,
+        }
+      );
       localStorage.setItem("authToken", response.data.token);
       onLogin(); // Notify the app that the user has logged in
       setLoginError("");
