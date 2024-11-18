@@ -143,7 +143,7 @@ const GroupsPage = () => {
 
       console.log(`Member ID: ${memberId}, New Group: ${groupName}`);
       await axios.post(
-        "http://localhost:5000/api/members/update-member-group",
+        `${process.env.REACT_APP_API_URL}/api/members/update-member-group`,
         {
           memberId,
           groupName,
