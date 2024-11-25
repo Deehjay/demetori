@@ -93,6 +93,7 @@ const DraggableMember = ({ id, name, weapons }) => {
 const GroupsPage = () => {
   const [members, setMembers] = useState([]);
   const [groups] = useState([
+    "Flex",
     "Group 1",
     "Group 2",
     "Group 3",
@@ -100,9 +101,8 @@ const GroupsPage = () => {
     "Group 5",
     "Group 6",
     "Group 7",
-    "Flex",
+    "Group 8",
     "BOMBA",
-    "SLEEP BOMBA",
     "Fill",
     "Fill 2",
   ]);
@@ -171,13 +171,6 @@ const GroupsPage = () => {
           <h1 className="text-3xl font-bold">Demetori Group Planner</h1>
         </div>
         <div className="flex flex-wrap justify-center items-center gap-4 w-10/12">
-          {/* Ungrouped Members Section */}
-          <Group
-            name="Ungrouped"
-            members={members.filter((member) => member.group === "Ungrouped")}
-            onDrop={handleDrop}
-          />
-
           {/* Render Groups */}
           {groups.map((groupName) => (
             <Group
@@ -187,6 +180,12 @@ const GroupsPage = () => {
               onDrop={handleDrop}
             />
           ))}
+          {/* Ungrouped Members Section */}
+          <Group
+            name="Ungrouped"
+            members={members.filter((member) => member.group === "Ungrouped")}
+            onDrop={handleDrop}
+          />
         </div>
       </div>
     </DndProvider>
