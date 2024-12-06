@@ -102,9 +102,9 @@ const GroupsPage = () => {
     "Group 6",
     "Group 7",
     "Group 8",
-    "BOMBA",
+    "Group 9",
+    "Group 10",
     "Fill",
-    "Fill 2",
   ]);
 
   useEffect(() => {
@@ -117,12 +117,9 @@ const GroupsPage = () => {
           return;
         }
 
-        const response = await axios.get(
-          `${process.env.REACT_APP_API_URL}/api/members`,
-          {
-            headers: { Authorization: `Bearer ${token}` }, // Pass token in the headers
-          }
-        );
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/members`, {
+          headers: { Authorization: `Bearer ${token}` }, // Pass token in the headers
+        });
 
         setMembers(response.data);
       } catch (error) {
@@ -154,9 +151,7 @@ const GroupsPage = () => {
       // Update the UI
       setMembers((prevMembers) =>
         prevMembers.map((member) =>
-          member.memberId === memberId
-            ? { ...member, group: groupName }
-            : member
+          member.memberId === memberId ? { ...member, group: groupName } : member
         )
       );
     } catch (error) {
